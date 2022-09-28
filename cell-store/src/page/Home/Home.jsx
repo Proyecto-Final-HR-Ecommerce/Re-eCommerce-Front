@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import SearchBar from '../../components/searchBar/searchBar'
 import { getAllProducts } from '../../redux/actions'
+import s from './Home.module.css';
+import Card from '../../components/cards-products/Card'
 
 const Home = () => {
   const dispatch = useDispatch()
