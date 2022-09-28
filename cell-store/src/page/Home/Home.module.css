@@ -4,3 +4,10 @@
     height: 100vh;
     background-color: rgb(102, 100, 100);
 }
+
+.cards {
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
