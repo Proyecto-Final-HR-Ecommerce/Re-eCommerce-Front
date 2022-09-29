@@ -5,6 +5,7 @@ import SearchBar from '../../components/searchBar/searchBar'
 import { getAllProducts } from '../../redux/actions'
 import s from "./Home.module.css"
 import Card from "../../components/cards-products/Card"
+import Footer from '../../components/footer/footer'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -16,7 +17,7 @@ const Home = () => {
   }, [dispatch])
 
   return (
-    <div>
+    <div className={s.fullcontainer}>
       <SearchBar />
       <div className={s.container}>
         <h1>Productos</h1>
@@ -33,13 +34,16 @@ const Home = () => {
 
                 />
                 {/* </Link> */}
+        
               </div >
 
             )
           })}
+         <Footer/>    
         </div>
 
       </div >
+              
     </div >
   )
 }
