@@ -56,5 +56,23 @@ export function resetState() {
   }
 }
 
+export function postProduct(form, navigate){
+  return function (dispatch){
+    return axios.post('/product',form)
+      .then(res => res.data)
+      .then(payload => {
+        alert("Se a Creado un Producto Correctamente",payload)
+        //Planear redirigir a ruta con el id de reponse para la carga de category.
+        navigate('/')
+      })
+      .catch(e=> {
+        console.error(e)
+        alert('Ocurrio un Error, No fue posible crear el producto')
+        navigate('/')
+      })
+
+  }
+}
+
 
 
