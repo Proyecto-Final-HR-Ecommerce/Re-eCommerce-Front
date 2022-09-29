@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS';
 export const GET_DETAILS = 'GET_DETAILS';
@@ -21,9 +22,8 @@ export const getAllProducts = () => {
   }
 }
 
-export function getProductByName(name) {
-  return async function (dispatch) {
-
+export function getProductByName(name){
+    return async function (dispatch){
     try {
       const product = await axios.get(`/products?name=${name}`)
       return dispatch({
@@ -33,23 +33,20 @@ export function getProductByName(name) {
     } catch (error) {
       console.log(error)
     }
-
   }
-
 }
 
-
-export function getDetailId(id) {
+export function getDetailId (id) {
   return async function (dispatch) {
-    try {
-      let json = await axios.get('/countries/' + id);
-      return dispatch({
-        type: GET_DETAILS,
-        payload: json.data
-      })
-    } catch (error) {
-      console.log(error)
-    }
+   try {
+       let json = await axios.get('/products/' + id);
+       return dispatch({
+           type: GET_DETAILS,
+           payload: json.data
+       })
+   } catch (error) {
+       console.log(error)
+   }
   }
 }
 
@@ -58,8 +55,6 @@ export function resetState() {
     type: RESET
   }
 }
-
-
 
 
 
