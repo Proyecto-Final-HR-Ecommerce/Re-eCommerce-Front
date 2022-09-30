@@ -1,11 +1,8 @@
 import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/searchBar/searchBar";
 import { getAllProducts ,getProductsPerPage} from "../../redux/actions";
 import * as s from "../Home/Home.module.css";
-import Card from "../../components/cards-products/Card";
-import { Link } from "react-router-dom";
+import Cards from "../../components/cards-products/Cards";
 import Footer from "../../components/footer/Footer";
 import Paginado from "../../components/Paginado/Paginado";
 
@@ -29,6 +26,7 @@ const Home = () => {
     <div>
       <SearchBar />
       <div className={s.container}>
+
         <h1>Productos</h1>
         <div className={s.cards}>
           {products2.products?.map((el) => {
@@ -51,8 +49,9 @@ const Home = () => {
             />
             <Footer/>
         </div>
+        <Cards />
       </div>
-    
+      <Footer />
     </div>
   );
 };
