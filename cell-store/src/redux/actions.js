@@ -1,9 +1,12 @@
 import axios from "axios";
 
+
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_DETAILS = "GET_DETAILS";
 export const RESET = "RESET";
+export const PRODUCTS_PER_PAGE = "PRODUCTS_PER_PAGE";
+export const CHANGE_PAGE ="CHANGE_PAGE";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -72,4 +75,24 @@ export function postProduct(form, navigate) {
         navigate("/");
       });
   };
+}
+export function changePage(page){
+  return function(dispatch){
+    return dispatch({
+      type:CHANGE_PAGE,
+      payload:page
+  })
+  }
+}
+
+export function getProductsPerPage(page){
+  return async function(dispatch){
+    console.log(page)
+    let products = await axios.get(`http://localhost:3001/products?page=${page}&&limit=8`)
+    return dispatch({
+      type:PRODUCTS_PER_PAGE, 
+      payload: products.data 
+
+    })
+  }
 }

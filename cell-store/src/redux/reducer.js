@@ -3,11 +3,15 @@ import {
   GET_PRODUCT_BY_NAME,
   GET_DETAILS,
   RESET,
+  CHANGE_PAGE,
+  PRODUCTS_PER_PAGE,
 } from "./actions";
 
 const initialState = {
   products: [],
+  products2: [],
   detail: [],
+  page:1
 }
 
 
@@ -33,6 +37,16 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: []
+      }
+    case CHANGE_PAGE:
+      return{
+        ...state,
+        page: action.payload
+      }
+    case PRODUCTS_PER_PAGE:
+      return{
+        ...state,
+        products2:action.payload
       }
 
     default: return {
