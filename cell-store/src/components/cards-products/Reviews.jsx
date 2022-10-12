@@ -7,45 +7,69 @@ import {
   getReviewByProduct,
   postReview,
 } from "../../redux/actions/reviewActions";
+import { getAllUsers } from "../../redux/actions/userActions";
+import styles from "./Reviews.module.css";
+import ReviewsRemix from "./ReviewsRemix";
 
-const Reviews = ({ id }) => {
+const Reviews = ({ id, name, image }) => {
   const dispatch = useDispatch();
   //   const reviews = useSelector((state) => state.reviews);
-  const reviewsByProduct = useSelector((state) => state.reviews);
+  const reviewsByProduct = useSelector((state) => state.review.reviews);
   const user = JSON.parse(localStorage.getItem("user"));
+  const allUsers = useSelector((state) => state.user.users).map((u) => ({
+    name: u.username,
+    id: u._id,
+  }));
   const [box, setBox] = useState(false);
   const handlePost = (e) => {
     e.preventDefault();
     setBox(!box);
   };
-  console.log(box);
+  const userbyName = (uId) => {
+    const userById = allUsers.find((u) => u.id === uId);
+    return userById?.name;
+  };
+
   useEffect(() => {
+    dispatch(getAllUsers());
     dispatch(getReviewByProduct(id));
   }, [dispatch]);
   return (
     <>
       {reviewsByProduct ? (
-        <details id="detalles" title="Reviews">
+        <details id="detalles" title="Reviews" className={styles.botónReview}>
+          <summary id="reviewsDe" className={styles.summ}>
+            Comentarios
+          </summary>
           {reviewsByProduct?.map((r) => (
-            <summary id="reviewsDe">
-              <p id={"usuarioEnReview" + r?.user?.id}>{r?.user?.username}</p>
-              <p id={"commentEnReview" + r?.user?.id}>{r?.comment}</p>
-            </summary>
+            <>
+              <p
+                className={styles.summUsuario}
+                id={"usuarioEnReview" + r?.user}
+              >
+                {userbyName(r?.user)} :
+              </p>
+              <p
+                className={styles.summComment}
+                id={"commentEnReview" + r?.user}
+              >
+                {r?.comment}
+              </p>
+            </>
           ))}
         </details>
       ) : null}
-      {user.admin === false && (
-        <button onClick={(e) => handlePost(e)}>Valorar</button>
+      {user?.admin === false && (
+        <button
+          className={styles.buttonReviewRemix}
+          onClick={(e) => handlePost(e)}
+        >
+          Dejá tu review
+          {box === true && (
+            <ReviewsRemix user={user} id={id} image={image} name={name} />
+          )}
+        </button>
       )}
-      {box === true && (
-        <>
-          <input placeholder="Opino que..." type="text" />
-          <label htmlFor="rating">Rating</label>
-          <input id="rating" type="range" min="1" max="5" step="1" />
-          <input type="button" value="Enviar" />
-        </>
-      )}
-      {/* {"Debería abrirse un box para escribir la review"} */}
     </>
   );
 };

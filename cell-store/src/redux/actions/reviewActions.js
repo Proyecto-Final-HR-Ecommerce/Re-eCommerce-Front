@@ -1,16 +1,19 @@
 import axios from "axios";
+import dotenv from "dotenv"
 export const ALL_REVIEWS = "ALL_REVIEWS";
 export const GET_USER_REVIEWS = "GET_USER_REVIEWS";
 export const GET_PRODUCT_REVIEWS = "GET_PRODUCT_REVIEWS";
 
-axios.defaults.baseURL = "http://localhost:3001";
 
-export const postReview = (productId, userId, review) => {
+
+axios.defaults.baseURL = import.meta.env.VITE_API;
+
+export const postReview = (productId, review) => {
   return async (dispatch) => {
     try {
-      await axios.post(`/product/${productId}/${userId}/review`, review);
+      await axios.post(`/product/${productId}/review`, review);
     } catch (error) {
-      return dispatch({});
+      console.log(error);
     }
   };
 };
@@ -18,10 +21,10 @@ export const postReview = (productId, userId, review) => {
 export const getAllReviews = () => {
   return async (dispatch) => {
     try {
-      const reviews = await axios.get("/reviews");
+      const json = await axios.get("/reviews");
       return dispatch({
         type: ALL_REVIEWS,
-        payload: reviews.data,
+        payload: json.data,
       });
     } catch (error) {
       console.log(error);
