@@ -13,22 +13,16 @@ export const RESPONSE_CHANGE_PASSWORD_FORGOT =
   "RESPONSE_CHANGE_PASSWORD_FORGOT";
 export const RESPONSE_NEW_PASSWORD = "RESPONSE_NEW_PASSWORD";
 
-axios.defaults.baseURL = import.meta.env.VITE_API;//localhost 3000
+axios.defaults.baseURL =import.meta.env.VITE_API;
 
 export const userRegister = (user) => {
-<<<<<<< HEAD
-  console.log(user);
-  console.log("hoa")
-=======
-
->>>>>>> 3464e509360b72d675a637ff30cc4504a3df5c84
   return async (dispatch) => {
     try {
-  const res = await axios.post("/register", user);
-   return dispatch({
-    type: REGISTER_ERROR,
-    payload: res.data,
-  });
+      const res = await axios.post("/register", user);
+      return dispatch({
+        type: REGISTER_ERROR,
+        payload: res.data,
+      });
     } catch (error) {
       return dispatch({
         type: REGISTER_ERROR,
@@ -42,7 +36,7 @@ export const userLogin = (user) => {
   return async (dispatch) => {
     try {
       const token = await axios.post("/login", user);
-      console.log("desde user",user)
+
       localStorage.setItem("token", token.data.token);
 
       return dispatch({
@@ -226,6 +220,19 @@ export const newPassword = (password, token) => {
     } catch (error) {
       return dispatch({
         type: RESPONSE_NEW_PASSWORD,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+
+export const cambiarPassword = (id, password, newPass) => {
+  return async (dispatch) => {
+    try {
+      await axios.post(`/cambiar-password/${id}`, password, newPass);
+    } catch (error) {
+      return dispatch({
+        type: ERROR_CONFIRM_TOKEN,
         payload: error.response.data,
       });
     }

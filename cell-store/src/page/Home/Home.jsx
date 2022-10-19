@@ -2,10 +2,18 @@ import React from "react";
 import * as s from "../Home/Home.module.css";
 import Cards from "../../components/cards-products/Cards";
 import Paginado from "../../components/Paginado/Paginado.jsx";
-import Footer from "../../components/footer/Footer";
 import Carrusel from "../../components/carrusel/Carrusel";
+import { getAllOrders } from "../../redux/actions/ordersActions";
+import { useDispatch } from 'react-redux';
+
+
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getAllOrders());
+  }, []);
 
   return (
     <div>
@@ -16,7 +24,7 @@ const Home = () => {
         </div>{" "}
       </div>
       <Paginado />
-      <Footer />
+      
     </div>
   );
 };

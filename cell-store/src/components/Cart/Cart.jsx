@@ -9,6 +9,8 @@ import s from './Cart.module.css';
 import { orderProduct } from '../../redux/actions/productActions';
 import { useEffect } from 'react';
 import ModalMsg from '../modal/ModalMsg';
+import BuyForm from '../buyForm/BuyForm';
+import { style } from '@mui/system';
 function Cart() {
 
 	const [location , setLocation] = useState('')
@@ -57,23 +59,7 @@ function Cart() {
 			payload: cart,
 		});
 	}
-	const handleCheckout = evt => {
-		if (localStorage.getItem('user')) {
-			const productArray = JSON.parse(localStorage.getItem('cart'))
-			
-			const id = JSON.parse(localStorage.getItem('user'))
-			
-			dispatch(orderProduct(productArray, id._id, location))
-			localStorage.removeItem('cart')
 
-			setTimeout(()=> {
-				window.location.reload();
-			},1500)
-		} else {
-			navigate('/account/login')
-			
-		}
-	};
      
 
 	useEffect(()=>{
@@ -105,10 +91,7 @@ function Cart() {
 							<div>
 								<h2 className={s.titleCart}> <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
 								<div className={s.tableSection}>
-									<div >
-
-
-									</div>
+									
 									<table >
 										<thead>
 											<tr className={s.tableTh}>
@@ -174,9 +157,10 @@ function Cart() {
 										</tbody>
 									</table>
 								</div>
+								
 							</div>
 
-
+							
 							<div className={s.summary}>
 								<h2 className={s.resumen}>Resumen del pedido</h2>
 								<p className={s.item}>
@@ -212,12 +196,7 @@ function Cart() {
 									Inicia sesion
 								</button>
 									}
-									{localStorage.getItem('user') && error === false && <button
-										className={s.btnCheck}
-										onClick={handleCheckout}
-									>
-										Proceder a la compra
-									</button> }
+									
 									<button
 										className={s.btnSeguirComp}
 										onClick={handleGoBackBtn}
@@ -226,11 +205,18 @@ function Cart() {
 									</button>
 								</div>
 							</div>
+							
 						</div>}
+						<div className={s.container_2}>
+							<BuyForm error={error} location={location}/>
+						</div>
 					</div>
 				)}
+				
 			</section>
+			
 		</div>
+		
 	)
 }
 

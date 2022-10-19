@@ -1,9 +1,9 @@
 .container {
     width: 100%;
-   height: 100%;
-   
+    height: 100%;
+    margin: 30px;
     background-color: var(--backgound-Cart);
- 
+
 }
 
 
@@ -11,14 +11,11 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-   
-    height: 100%;
 }
 
 .titleCart {
     color: var(--color-Cart-title);
     font-style: italic;
-    margin-top: 30px;
 }
 
 table {
@@ -114,18 +111,12 @@ thead th {
 }
 
 .tableSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
+    height: 650px;
     overflow: auto;
-    
 }
 
 .imagencarrito {
-    width: 40px;
-
+    width: 70px;
 }
 
 table td input {
@@ -230,13 +221,4 @@ td {
 
 .btnSeguirComp:hover {
     transform: scale(1.1)
-}
-
-.container_2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-   
 }
