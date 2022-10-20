@@ -130,7 +130,7 @@ const Card = (p) => {
         <h3 className={s.titleName}>{p.name}</h3>
       </div>
       <div className={s.imgContein}>
-        <img className={s.imgProduct} src={p.image} alt="image not found" />
+        <img className={s.imgProduct} src={p.image?p.image:p.arrayImag[0]} alt="image not found" />
       </div>
 
       <div className={s.info}>

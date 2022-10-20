@@ -35,6 +35,7 @@ import OrdersList from "./page/Dashboard/OrdersList";
 import ReviewsList from "./page/Dashboard/ReviewsList";
 import Settings from "./page/Profile/Settings";
 import Faq from "./components/Faqs/Faq";
+import ProductFormRemix from "./page/Form/ProductFormRemix";
 
 /* import Detail from './components/cards-products/Detail' */
 
@@ -87,6 +88,8 @@ function App() {
 
         <Route element={<ProtectedRoute isAllowed={user?.admin} />}>
           <Route path="/newproduct" element={<ProductForm />} />
+          {/*autenticado y administrador*/}
+          <Route path="/newproductremix" element={<ProductFormRemix />} />
           {/*autenticado y administrador*/}
           <Route path="/interForm/:id" element={<InterForm />} />
           {/*autenticado y administrador*/}
