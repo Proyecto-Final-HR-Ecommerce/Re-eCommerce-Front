@@ -5,7 +5,6 @@
   background: Var(--background-NavBar-navBar);
   justify-content: space-around;
   align-items: flex-start;
-  
 }
 
 .header {
@@ -168,6 +167,4 @@
   justify-content: space-around;
   width: 20%;
   margin: 15px;
- 
-
 }

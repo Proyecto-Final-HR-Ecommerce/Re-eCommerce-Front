@@ -18,10 +18,13 @@ function Cart() {
 
   const { cart } = useSelector((state) => state.cart);
   const linkMP = useSelector((state) => state.product.linkMP);
+
   const dispatch = useDispatch();
+
   const handleGoBackBtn = () => {
     navigate("/");
   };
+
   const handleQtyClick = (e, product) => {
     if (e.target.name === "+") {
       console.log("entré en +");
@@ -39,12 +42,14 @@ function Cart() {
     const cart = localStorage.getItem("cart")
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
+
     cart.forEach((cartItem) => {
       if (cartItem._id === product._id) {
         cartItem.count = value;
       }
     });
     localStorage.setItem("cart", JSON.stringify(cart));
+
     dispatch({
       type: ADD_TO_CART,
       payload: cart,
@@ -58,6 +63,7 @@ function Cart() {
 
       dispatch(orderProduct(productArray, id._id, location));
       localStorage.removeItem("cart");
+
       setTimeout(() => {
         window.location.reload();
       }, 1500);
@@ -130,6 +136,7 @@ function Cart() {
                                   {product.name}
                                 </Link>
                               </div>
+
                               <button
                                 className={s.btnDelete}
                                 type="button"
@@ -144,6 +151,7 @@ function Cart() {
                                 />
                               </button>
                             </td>
+
                             <td>
                               <p className={s.botonesQ}>
                                 <button
@@ -166,6 +174,7 @@ function Cart() {
                                   +
                                 </button>
                               </p>
+
                               <label className={s.disponible}>
                                 disponible: {product.stock}
                               </label>
@@ -219,15 +228,14 @@ function Cart() {
                         setError={setError}
                       />
                     ) : (
-                      <button className={s.btnCheck} onClick={handleCheckout}>
+                      <button
+                        className={s.btnCheck}
+                        onClick={() => navigate("/account/login")}
+                      >
                         Inicia sesion
                       </button>
                     )}
-                    {localStorage.getItem("user") && error === false && (
-                      <button className={s.btnCheck} onClick={handleCheckout}>
-                        Proceder a la compra
-                      </button>
-                    )}
+
                     <button
                       className={s.btnSeguirComp}
                       onClick={handleGoBackBtn}
@@ -240,9 +248,12 @@ function Cart() {
             }
           </div>
         )}
+        <div className={s.container_2}>
+          <BuyForm location={location} error={error} />
+        </div>
       </section>
-      <BuyForm />
     </div>
   );
 }
+
 export default Cart;
