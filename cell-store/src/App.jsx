@@ -36,7 +36,7 @@ import Settings from "./page/Profile/Settings";
 import Faq from "./components/Faqs/Faq";
 
 /* import Detail from './components/cards-products/Detail' */
-
+//,,,,,,
 function App() {
   const user_redux = useSelector((state) => state.user.user);
   const user = JSON.parse(localStorage.getItem("user"));

@@ -13,7 +13,7 @@ export const RESPONSE_CHANGE_PASSWORD_FORGOT =
   "RESPONSE_CHANGE_PASSWORD_FORGOT";
 export const RESPONSE_NEW_PASSWORD = "RESPONSE_NEW_PASSWORD";
 
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = import.meta.env.VITE_API;
 
 export const userRegister = (user) => {
   return async (dispatch) => {
