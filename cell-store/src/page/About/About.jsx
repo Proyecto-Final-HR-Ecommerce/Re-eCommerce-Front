@@ -89,22 +89,6 @@ const About = () => {
       </div>
       <div className={styles.crew}>
         <label className={styles.nombre}>
-          Ignacio Emanuel Funes
-          <Link to={"https://github.com/EmanFun"}>
-            <button className={styles.aboutBtn}>Github</button>
-          </Link>
-          <Link>
-            <button className={styles.aboutBtn}>LinkedIn</button>
-          </Link>
-          <img
-            className={styles.avatarPhoto}
-            src="https://avatars.githubusercontent.com/u/88778765?v=4"
-            alt=""
-          />
-        </label>
-      </div>
-      <div className={styles.crew}>
-        <label className={styles.nombre}>
           Cristina Murguía
           <Link to={"https://github.com/crismurbaez"}>
             <button className={styles.aboutBtn}>Github</button>

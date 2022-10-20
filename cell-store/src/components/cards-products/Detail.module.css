@@ -159,28 +159,26 @@
     transform: scale(1.2)
 } */
 
-#review_block{
+#review_block {
   padding-right: 30px;
   display: flex;
   flex-direction: column;
 }
-#review_block2{
+#review_block2 {
   padding-right: 30px;
   display: flex;
   /* flex-direction: column; */
 }
 
-#review_detail{
+#review_detail {
   text-align: left;
   margin-top: 0;
   margin-bottom: 5px;
   margin-left: 20px;
   color: #001428c7;
 }
-#review_letter{
+#review_letter {
   margin-left: 10px;
   /* color: #001428c7; */
   color: orange;
 }
-
-

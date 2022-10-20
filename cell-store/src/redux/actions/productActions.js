@@ -60,6 +60,19 @@ export function getDetailId(id) {
     }
   };
 }
+export function deleteProduct(id) {
+  return async function (dispatch) {
+    try {
+      let json = await axios.delete("/product/" + id);
+      return dispatch({
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 export function getFilter(query) {
   return async function (dispatch) {
     try {
@@ -88,6 +101,25 @@ export function postProduct(form, navigate) {
       .then((res) => res.data)
       .then((payload) => {
         alert("Se ha creado un producto correctamente", payload);
+        //Planear redirigir a ruta con el id de reponse para la carga de category.
+        console.log(payload);
+        navigate(`/interForm/${payload._id}`);
+      })
+      .catch((e) => {
+        console.error(e);
+        alert("Ocurrió un error, no fue posible crear el producto");
+        navigate("/");
+      });
+  };
+}
+
+export function updateProduct(id, form) {
+  return function (dispatch) {
+    return axios
+      .put("/product/" + id, form)
+      .then((res) => res.data)
+      .then((payload) => {
+        alert("Se ha modificado un producto correctamente", payload);
         //Planear redirigir a ruta con el id de reponse para la carga de category.
         console.log(payload);
         navigate(`/interForm/${payload._id}`);

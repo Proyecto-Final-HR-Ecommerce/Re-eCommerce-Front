@@ -71,6 +71,7 @@ export const userLogin = (user) => {
 export const googleLogin = (user) => {
   return async (dispatch) => {
     try {
+      console.log(user, "SOY EL LOGIN");
       const token = await axios.post("/loginGoogle", user);
       localStorage.setItem("token", token.data.token);
 

@@ -39,11 +39,14 @@ const Auth = () => {
       JSON.stringify(jwt_decode(response.credential))
     );
     const googleUser = decodeGoogle(response.credential);
-    if (localStorage.getItem("user") === null) {
+    if (localStorage.getItem("user") === null)
       dispatch(googleRegister(googleUser));
-    } else {
-      dispatch(googleLogin(googleUser));
-    }
+    if (localStorage.getItem("user"))
+      google.accounts.id.renderButton(document.getElementById("g_id_onload"), {
+        theme: "outline",
+        size: "large",
+      });
+    dispatch(googleLogin(googleUser));
   };
   useEffect(() => {
     google.accounts.id.initialize({
@@ -55,6 +58,7 @@ const Auth = () => {
       theme: "outline",
       size: "large",
     });
+
     if (Object.keys(token).length > 0) {
       dispatch(getUserData());
       return navigate("/");
@@ -139,6 +143,14 @@ const Auth = () => {
             </Link>
 
             <div id="singInDiv"></div>
+            <div
+              id="g_id_onload"
+              data-client_id={import.meta.env.VITE_GOOGLE_BACK}
+              data-login_uri="http://localhost:3000/loginGoogle"
+              data-your_own_param_1_to_login="email"
+              data-your_own_param_2_to_login="email_verified"
+              data-context="use"
+            ></div>
           </div>
         </form>
       </div>

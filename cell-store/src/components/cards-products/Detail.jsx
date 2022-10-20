@@ -119,6 +119,9 @@ function Detail() {
     };
   }, [dispatch, id]);
 
+  const handleAddToCart = () => {
+    dispatch(addToCart(myProduct));
+  };
   const handleGoBackBtn = () => {
     navigate(-1);
   };
