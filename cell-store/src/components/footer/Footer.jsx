@@ -6,6 +6,7 @@ import instagram from './img/btn-instagram.png'
 import twitter from './img/btn-twitter.png'
 import logo from "../../image/logo.png"
 
+
 import './Footer.css'
 
 

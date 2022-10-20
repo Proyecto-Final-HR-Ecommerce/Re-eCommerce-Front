@@ -10,6 +10,7 @@ import MenuAccount from "../menuAccount/MenuAccount";
 import { useState } from "react";
 import logo from "../../image/logo.png";
 import corazonRojo from '../../image/corazonrojo.png'
+import DehazeIcon from '@mui/icons-material/Dehaze';
 
 
 export const NavBar = () => {
@@ -43,35 +44,38 @@ export const NavBar = () => {
             <h1>Cell Store</h1>
           </div>
         </Link>
+        <button className={styles.toggleNav}> <DehazeIcon /></button>
 
-
+          
         <SearchBar />
 
         <div className={styles.div_carrito_login}>
 
           <CartNavBar />
-          <Link to="/favoritos">
-            <div>
-              <img
-                className={styles.corazon}
-                src={corazonRojo}
-                alt="image not found" />
-            </div>
-          </Link>
+          {(user?.admin === false || user_redux?.admin === false || user === null) ?
+            <Link to="/favoritos">
+              <div>
+                <img
+                  className={styles.corazon}
+                  src={corazonRojo}
+                  alt="image not found" />
+              </div>
+            </Link>
+            : null
+          }
 
 
 
-          
-            {localStorage.getItem("token") === null ? (
-              <Link className={styles.link} to="/account/login">
-                <button className={styles.navBtnLogin}>Iniciar sesión</button>
-              </Link>
+          {localStorage.getItem("token") === null ? (
+            <Link className={styles.link} to="/account/login">
+              <button className={styles.navBtnLogin}>Iniciar sesión</button>
+            </Link>
 
-            ) : <MenuAccount/> }
-           
-          
-         
-          
+          ) : <MenuAccount />}
+
+
+
+
 
         </div>
 

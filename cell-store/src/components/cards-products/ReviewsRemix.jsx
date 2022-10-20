@@ -19,7 +19,7 @@ export default function ReviewsRemix({ id, name, image, user, setBox }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input?.comment?.length >= 4 && user && input?.rating?.length > 0) {
+    if (input?.rating?.length > 0 && input?.comment?.length >= 4 && user) {
       dispatch(postReview(id, input));
       setBox(false)
       setInput({
