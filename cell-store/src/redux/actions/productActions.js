@@ -16,7 +16,7 @@ export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
 export const LINK_MP = "LINK_MP";
 
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = import.meta.env.VITE_AP;
 
 export const getAllProducts = () => {
   return async (dispatch) => {
