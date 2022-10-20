@@ -21,7 +21,7 @@ export default function Orders() {
   let id = usuario._id;
   console.log("id", id);
 
-  const orderUsuario = order?.filter((orden) => orden.user === usuario._id);
+  const orderUsuario = order?.filter((orden) => orden.user === usuario?._id);
   console.log("ordenusuario", orderUsuario);
   useEffect(() => {
     dispatch(getAllOrders());
