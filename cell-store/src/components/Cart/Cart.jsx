@@ -211,12 +211,7 @@ function Cart() {
 									Inicia sesion
 								</button>
 									}
-									{localStorage.getItem('user') && error === false && <button
-										className={s.btnCheck}
-										onClick={handleCheckout}
-									>
-										Proceder a la compra
-									</button> }
+									
 									<button
 										className={s.btnSeguirComp}
 										onClick={handleGoBackBtn}
@@ -229,9 +224,11 @@ function Cart() {
 						</div>}
 					</div>
 				)}
-				
+				<div className={s.container_2}>
+				<BuyForm location={location} error={error}/>
+				</div>
 			</section>
-			<BuyForm/>
+			
 		</div>
 		
 	)
