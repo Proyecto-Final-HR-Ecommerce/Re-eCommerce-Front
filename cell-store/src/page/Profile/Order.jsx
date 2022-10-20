@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-
-import { getAllOrders } from "../../redux/actions/ordersActions";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,24 +7,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { getOrdersByUser } from "../../redux/actions/ordersActions";
 
-export default function Orders() {
+export default function Orders({ id }) {
   const dispatch = useDispatch();
-
-  const order = useSelector((state) => state.orders.allOrders);
-  console.log("ordenes", order);
-  const usuario = useSelector((state) => state.user.user);
-  console.log("desde order", usuario);
-
-  let id = usuario._id;
-  console.log("id", id);
-
-  const orderUsuario = order?.filter((orden) => orden.user === usuario?._id);
-  console.log("ordenusuario", orderUsuario);
   useEffect(() => {
-    dispatch(getAllOrders());
+    dispatch(getOrdersByUser(id));
   }, []);
-
+  const ordenesUsuario = useSelector((state) => state.orders.userOrders);
+  console.log(ordenesUsuario);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ maxWidth: 400 }} aria-label="simple table">
@@ -53,37 +42,37 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {orderUsuario?.map((row) => (
+          {ordenesUsuario?.map((row) => (
             <TableRow
-              key={row._id}
+              key={row?._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.date}
+                {row?.date}
               </TableCell>
 
-              <TableCell align="center">{row.PaymentMethod}</TableCell>
-              <TableCell align="center">{row.status}</TableCell>
+              <TableCell align="center">{row?.PaymentMethod}</TableCell>
+              <TableCell align="center">{row?.status}</TableCell>
               <TableCell align="center">
-                {row.orderItems?.map((or) => {
+                {row?.orderItems?.map((or) => {
                   return (
                     <div>
-                      <p>{or.name}</p>
+                      <p>{or?.name}</p>
                     </div>
                   );
                 })}
               </TableCell>
               <TableCell align="center">
-                {row.orderItems?.map((or) => {
+                {row?.orderItems?.map((or) => {
                   return (
                     <div>
-                      <img src={or.image} alt="not found" width="55rem" />
+                      <img src={or?.image} alt="not found" width="55rem" />
                     </div>
                   );
                 })}
               </TableCell>
               <TableCell align="center">
-                {row._id}
+                {row?._id}
                 <br />
               </TableCell>
             </TableRow>
