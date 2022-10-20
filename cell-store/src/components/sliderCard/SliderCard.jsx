@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import CardMui from '../cardMui/cardMui'
+import CardMui from '../cardMui/CardMui'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch, useSelector } from 'react-redux';
