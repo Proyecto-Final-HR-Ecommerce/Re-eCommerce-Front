@@ -4,11 +4,11 @@ import Sidebar from "../Sidebar/Sidebar";
 import s from "./AdminDashboard.module.css";
 import { Link } from "react-router-dom";
 
-import Widget from "../Widget";
+import Widget from "../Chart/Widget";
 import { getAllUsers } from "../../../redux/actions/userActions";
 import { getAllProducts } from "../../../redux/actions/productActions";
 import VentasTotales from "../Chart/VentasTotales";
-import Chart from "../Chart";
+import Chart from "../Chart/Chart";
 
 const AdminDashboard = () => {
   const dispatch = useDispatch();

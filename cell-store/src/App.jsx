@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { json, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./page/Home/Home";
+import Home from "./pages/Home/Home";
 import {
   getAllProducts,
   getProductsPerPage,
 } from "./redux/actions/productActions";
-import Detail from "./components/cards-products/Detail";
-import Favoritos from "./components/cards-products/Favoritos";
-import ProductForm from "./pages/Form/ProductForm";
-import InterForm from "./pages/Form/InterForm";
-import CategoryForm from "./pages/Form/CategoryForm";
+import Detail from "./pages/Details/Detail";
+import Favoritos from "./pages/Favourites/Favoritos";
+import ProductForm from "./pages/Forms/Product/ProductForm";
+import InterForm from "./pages/Forms/Inter/InterForm";
+import CategoryForm from "./pages/Forms/Category/CategoryForm";
 import About from "./pages/About/About";
 import Auth from "./pages/login/Auth";
 import Register from "./pages/register/Register";
@@ -22,16 +22,16 @@ import Footer from "./components/footer/Footer";
 import ConfirmEmail from "./pages/ConfirmEmail/ConfirmEmail";
 import ConfirmedEmail from "./pages/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
-import NotFound from "./components/NotFound/NotFound";
+import NotFound from "./pages/NotFound/NotFound";
 import { ProtectedRoute } from "./Protected/ProtectedRoute";
 import ChangePassword_forgot from "./pages/PasswordRecover/ChangePassword_forgot";
 import Sidebar from "./pages/Dashboard/Sidebar/Sidebar";
-import AdminDashboard from "./pages/Dashboard/AdminDashboar";
-import VentasTotales from "./pages/Dashboard/VentasTotales";
-import UsersList from "./pages/Dashboard/Lists/UsersList/UsersList";
-import ProductList from "./pages/Dashboard/Lists/ProductList/ProductList";
-import OrdersList from "./pages/Dashboard/Lists/OrdersList/OrdersList";
-import ReviewsList from "./pages/Dashboard/Lists/ReviewsList/ReviewsList";
+import AdminDashboard from "./pages/Dashboard/AdminDash/AdminDashboar";
+import VentasTotales from "./pages/Dashboard/Chart/VentasTotales";
+import UsersList from "./pages/Dashboard/Lists/Users/UsersList";
+import ProductList from "./pages/Dashboard/Lists/Products/ProductList";
+import OrdersList from "./pages/Dashboard/Lists/Orders/OrdersList";
+import ReviewsList from "./pages/Dashboard/Lists/Reviews/ReviewsList";
 import Settings from "./pages/Profile/Settings";
 import Faq from "./components/Faqs/Faq";
 

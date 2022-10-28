@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { userLogOut } from "../../redux/actions/userActions";
 import styles from "../NavBar/NavBar.module.css";
 import SearchBar from "../searchBar/searchBar";
-import CartNavBar from "../Cart/CartNavBar";
+import CartNavBar from "../Cart/CartNavBar/CartNavBar";
 import { changePage, getAllProducts } from "../../redux/actions/productActions";
 import MenuAccount from "../menuAccount/MenuAccount";
 import { useState } from "react";

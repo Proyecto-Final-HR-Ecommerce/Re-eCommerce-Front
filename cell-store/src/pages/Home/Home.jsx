@@ -1,5 +1,5 @@
 import React from "react";
-import * as s from "..Home/Home.module.css";
+import * as s from "../Home/Home.module.css";
 import Cards from "../../components/Cards/Cards";
 import Paginado from "../../components/Paginado/Paginado.jsx";
 import Carrusel from "../../components/Carousel/Carrusel";

@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "../Cards/Card";
+import Card from "../Cards/Card/Card";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import s from "../Cards/Cards.module.css";
-import NotFound from "../../pages/NotFound";
+import NotFound from "../../pages/NotFound/NotFound";
 
 const Cards = () => {
   const paginados = useSelector((state) => state.product.products2);

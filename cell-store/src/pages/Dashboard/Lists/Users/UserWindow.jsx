@@ -7,7 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { deleteUser, modifyUser } from "../../redux/actions/userActions";
+import { deleteUser, modifyUser } from "../../../../redux/actions/userActions";
 
 export default function UserWindow({ openFormDialog, user }) {
   const dispatch = useDispatch();

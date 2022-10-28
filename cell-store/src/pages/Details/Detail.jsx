@@ -13,7 +13,7 @@ import carrito from "../../image/carrito.png";
 import corazonVacio from "../../image/corazonVacio.png";
 import corazonRojo from "../../image/corazonrojo.png";
 import { addToCart } from "../../redux/actions/cartActions";
-import Reviews from "./Reviews";
+import Reviews from "../../components/Reviews/Reviews";
 /* import ReviewsRemix from "./ReviewsRemix"; */
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";

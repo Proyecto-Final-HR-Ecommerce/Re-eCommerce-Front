@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getReviewByProduct } from "../../redux/actions/reviewActions";
 import { getAllUsers } from "../../redux/actions/userActions";
 import styles from "./Reviews.module.css";
-import ReviewsRemix from "./ReviewsRemix";
+import ReviewsRemix from "./ReviewsRemix/ReviewsRemix";
 
 const Reviews = ({ id, name, image }) => {
   const dispatch = useDispatch();
