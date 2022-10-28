@@ -8,8 +8,9 @@ import carrito from "../../image/carrito.png";
 import s from "./Cart.module.css";
 import { orderProduct } from "../../redux/actions/productActions";
 import { useEffect } from "react";
-import ModalMsg from "../modal/ModalMsg";
-import BuyForm from "../buyForm/BuyForm";
+import ModalMsg from "../Modal/ModalMsg";
+import BuyForm from "../BuyForm/BuyForm";
+
 function Cart() {
   const [location, setLocation] = useState("");
   const [error, setError] = useState(true);
