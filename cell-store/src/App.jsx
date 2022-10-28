@@ -8,31 +8,31 @@ import {
 } from "./redux/actions/productActions";
 import Detail from "./components/cards-products/Detail";
 import Favoritos from "./components/cards-products/Favoritos";
-import ProductForm from "./page/Form/ProductForm";
-import InterForm from "./page/Form/InterForm";
-import CategoryForm from "./page/Form/CategoryForm";
-import About from "./page/About/About";
-import Auth from "./page/login/Auth";
-import Register from "./page/register/Register";
-import Profile from "./page/Profile/Profile";
-import Historia from "./page/historia/Historia";
+import ProductForm from "./pages/Form/ProductForm";
+import InterForm from "./pages/Form/InterForm";
+import CategoryForm from "./pages/Form/CategoryForm";
+import About from "./pages/About/About";
+import Auth from "./pages/login/Auth";
+import Register from "./pages/register/Register";
+import Profile from "./pages/Profile/Profile";
+import Historia from "./pages/historia/Historia";
 import { useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
-import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
-import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
+import ConfirmEmail from "./pages/ConfirmEmail/ConfirmEmail";
+import ConfirmedEmail from "./pages/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
 import NotFound from "./components/NotFound/NotFound";
 import { ProtectedRoute } from "./Protected/ProtectedRoute";
-import ChangePassword_forgot from "./page/changePassowrd_forgot/ChangePassword_forgot";
-import UsersList from "./page/Dashboard/UsersList";
-import Sidebar from "./page/Dashboard/Sidebar";
-import AdminDashboard from "./page/Dashboard/AdminDashboar";
-import VentasTotales from "./page/Dashboard/VentasTotales";
-import ProductList from "./page/Dashboard/ProductList";
-import OrdersList from "./page/Dashboard/OrdersList";
-import ReviewsList from "./page/Dashboard/ReviewsList";
-import Settings from "./page/Profile/Settings";
+import ChangePassword_forgot from "./pages/PasswordRecover/ChangePassword_forgot";
+import Sidebar from "./pages/Dashboard/Sidebar/Sidebar";
+import AdminDashboard from "./pages/Dashboard/AdminDashboar";
+import VentasTotales from "./pages/Dashboard/VentasTotales";
+import UsersList from "./pages/Dashboard/Lists/UsersList/UsersList";
+import ProductList from "./pages/Dashboard/Lists/ProductList/ProductList";
+import OrdersList from "./pages/Dashboard/Lists/OrdersList/OrdersList";
+import ReviewsList from "./pages/Dashboard/Lists/ReviewsList/ReviewsList";
+import Settings from "./pages/Profile/Settings";
 import Faq from "./components/Faqs/Faq";
 
 /* import Detail from './components/cards-products/Detail' */
@@ -114,15 +114,3 @@ function App() {
   );
 }
 export default App;
-/* 
-    <Router>
-      <Routes>
-        <Route path='/:id' element={<Detail/>} />
-        <Route path='/' element={<Home/>} />
-      </Routes>
-    </Router>
-    
-    < Home />
-    
-    
-*/
