@@ -105,6 +105,7 @@ const Card = (p) => {
       });
     }
   };
+
   const handleAddToCart = (e) => {
     const productId = myProduct.filter((e) => e._id === id);
     // console.log("productId---------//----card", productId[0]);
@@ -140,24 +141,18 @@ const Card = (p) => {
       <div className={s.footerCard}>
         <div className={s.left}></div>
         <Link className={s.agregarCarrito} to={`/`}>
-          {user_redux?.admin === true || user?.admin === true ? (
-            <Link>
-              <button className={s.editButton}>Editar</button>
-            </Link>
-          ) : (
-            <span className={s.button}>
-              <button onClick={handleAddToCart} className={s.buttonCarrito}>
-                <img
-                  className={s.imgCarrito}
-                  src={carrito}
-                  alt="image not found"
-                />
-              </button>
-              <button onClick={handleAddToCart} className={s.comprar}>
-                Agregar al carrito
-              </button>
-            </span>
-          )}
+          <span className={s.button}>
+            <button onClick={handleAddToCart} className={s.buttonCarrito}>
+              <img
+                className={s.imgCarrito}
+                src={carrito}
+                alt="image not found"
+              />
+            </button>
+            <button onClick={handleAddToCart} className={s.comprar}>
+              Agregar al carrito
+            </button>
+          </span>
         </Link>
 
         <div className={s.right} onClick={(e) => handleAddLike(e)}>
