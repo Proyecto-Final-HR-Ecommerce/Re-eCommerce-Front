@@ -44,7 +44,7 @@ const Cards = () => {
                   />
                 </Link>
                 {user_redux.admin === true ? (
-                  <ProductModal openFormDialog="Editar" product={el} />
+                  <ProductModal openFormDialog='Editar' product={el} />
                 ) : null}
               </div>
             );
