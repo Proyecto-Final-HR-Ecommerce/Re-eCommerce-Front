@@ -81,10 +81,10 @@ function Cart() {
 
   return (
     <div className={s.container}>
-      <section className="cart-page m-4">
+      <section className='cart-page m-4'>
         {cart.length <= 0 ? (
           <div>
-            <h1 className="display-4">
+            <h1 className='display-4'>
               El carrito está vacío{" "}
               <button onClick={handleGoBackBtn}>Volver</button>
             </h1>
@@ -99,7 +99,7 @@ function Cart() {
                     <img
                       className={s.imagencarrito}
                       src={carrito}
-                      alt="carrito"
+                      alt='carrito'
                     />{" "}
                     Carrito
                   </h2>
@@ -107,14 +107,14 @@ function Cart() {
                     <table>
                       <thead>
                         <tr className={s.tableTh}>
-                          <th scope="col" className={s.colImage}></th>
-                          <th scope="col" className={s.colProducto}>
+                          <th scope='col' className={s.colImage}></th>
+                          <th scope='col' className={s.colProducto}>
                             Producto
                           </th>
-                          <th scope="col" className={s.colCantidad}>
+                          <th scope='col' className={s.colCantidad}>
                             Cantidad
                           </th>
-                          <th scope="col" className={s.colPrecio}>
+                          <th scope='col' className={s.colPrecio}>
                             Precio
                           </th>
                         </tr>
@@ -122,12 +122,12 @@ function Cart() {
                       <tbody>
                         {cart.map((product) => (
                           <tr key={product._id}>
-                            <th scope="row">
+                            <th scope='row'>
                               {" "}
                               <img
                                 className={s.imgContain}
                                 src={`${product.image}`}
-                                alt="product"
+                                alt='product'
                               />
                             </th>
                             <td>
@@ -140,7 +140,7 @@ function Cart() {
 
                               <button
                                 className={s.btnDelete}
-                                type="button"
+                                type='button'
                                 onClick={() =>
                                   dispatch(deleteFromCart(product))
                                 }
@@ -148,7 +148,7 @@ function Cart() {
                                 <img
                                   className={s.imagDelete}
                                   src={trash}
-                                  alt="not found"
+                                  alt='not found'
                                 />
                               </button>
                             </td>
@@ -158,7 +158,7 @@ function Cart() {
                                 <button
                                   className={s.buttonQ}
                                   onClick={(e) => handleQtyClick(e, product)}
-                                  name="-"
+                                  name='-'
                                 >
                                   -
                                 </button>
@@ -170,7 +170,7 @@ function Cart() {
                                 <button
                                   className={s.buttonQ}
                                   onClick={(e) => handleQtyClick(e, product)}
-                                  name="+"
+                                  name='+'
                                 >
                                   +
                                 </button>
