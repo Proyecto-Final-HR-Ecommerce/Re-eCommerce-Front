@@ -13,7 +13,7 @@ export const RESPONSE_CHANGE_PASSWORD_FORGOT =
   "RESPONSE_CHANGE_PASSWORD_FORGOT";
 export const RESPONSE_NEW_PASSWORD = "RESPONSE_NEW_PASSWORD";
 
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = import.meta.env.VITE_API || "http://localhost:3001";
 
 export const userRegister = (user) => {
   return async (dispatch) => {
@@ -71,6 +71,7 @@ export const userLogin = (user) => {
 export const googleLogin = (user) => {
   return async (dispatch) => {
     try {
+      console.log(user, "SOY EL LOGIN");
       const token = await axios.post("/loginGoogle", user);
       localStorage.setItem("token", token.data.token);
 

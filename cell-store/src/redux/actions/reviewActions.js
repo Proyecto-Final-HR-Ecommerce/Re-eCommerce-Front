@@ -3,7 +3,7 @@ export const ALL_REVIEWS = "ALL_REVIEWS";
 export const GET_USER_REVIEWS = "GET_USER_REVIEWS";
 export const GET_PRODUCT_REVIEWS = "GET_PRODUCT_REVIEWS";
 
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = import.meta.env.VITE_API || "http://localhost:3001";
 
 export const postReview = (productId, review) => {
   return async (dispatch) => {

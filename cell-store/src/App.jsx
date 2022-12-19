@@ -1,43 +1,42 @@
 import { useDispatch, useSelector } from "react-redux";
 import { json, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./page/Home/Home";
+import Home from "./pages/Home/Home";
 import {
   getAllProducts,
   getProductsPerPage,
 } from "./redux/actions/productActions";
-import Detail from "./components/cards-products/Detail";
-import Favoritos from "./components/cards-products/Favoritos";
-import ProductForm from "./page/Form/ProductForm";
-import InterForm from "./page/Form/InterForm";
-import CategoryForm from "./page/Form/CategoryForm";
-import About from "./page/About/About";
-import Auth from "./page/login/Auth";
-import Register from "./page/register/Register";
-import Profile from "./page/Profile/Profile";
-import Historia from "./page/historia/Historia";
+import Detail from "./pages/Details/Detail";
+import Favoritos from "./pages/Favourites/Favoritos";
+import ProductForm from "./pages/Forms/Product/ProductForm";
+import InterForm from "./pages/Forms/Inter/InterForm";
+import CategoryForm from "./pages/Forms/Category/CategoryForm";
+import About from "./pages/About/About";
+import Auth from "./pages/login/Auth";
+import Register from "./pages/register/Register";
+import Profile from "./pages/Profile/Profile";
+import Historia from "./pages/historia/Historia";
 import { useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
-import Dashboard from "./page/Dashboard/Dashboard";
-import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
-import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
+import ConfirmEmail from "./pages/ConfirmEmail/ConfirmEmail";
+import ConfirmedEmail from "./pages/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
-import NotFound from "./components/NotFound/NotFound";
+import NotFound from "./pages/NotFound/NotFound";
 import { ProtectedRoute } from "./Protected/ProtectedRoute";
-import ChangePassword_forgot from "./page/changePassowrd_forgot/ChangePassword_forgot";
-import UsersList from "./page/Dashboard/UsersList";
-import Sidebar from "./page/Dashboard/Sidebar";
-import AdminDashboard from "./page/Dashboard/AdminDashboar";
-import VentasTotales from "./page/Dashboard/VentasTotales";
-import ProductList from "./page/Dashboard/ProductList";
-import OrdersList from "./page/Dashboard/OrdersList";
-import ReviewsList from "./page/Dashboard/ReviewsList";
-import Settings from "./page/Profile/Settings";
+import ChangePassword_forgot from "./pages/PasswordRecover/ChangePassword_forgot";
+import Sidebar from "./pages/Dashboard/Sidebar/Sidebar";
+import AdminDashboard from "./pages/Dashboard/AdminDash/AdminDashboar";
+import VentasTotales from "./pages/Dashboard/Chart/VentasTotales";
+import UsersList from "./pages/Dashboard/Lists/Users/UsersList";
+import ProductList from "./pages/Dashboard/Lists/Products/ProductList";
+import OrdersList from "./pages/Dashboard/Lists/Orders/OrdersList";
+import ReviewsList from "./pages/Dashboard/Lists/Reviews/ReviewsList";
+import Settings from "./pages/Profile/Settings";
 import Faq from "./components/Faqs/Faq";
-import CardPagination from "./page/CardPagination/CardPagination";
-/* import Detail from './components/cards-products/Detail' */
 
+/* import Detail from './components/cards-products/Detail' */
+//,,,,,,
 function App() {
   const user_redux = useSelector((state) => state.user.user);
   const user = JSON.parse(localStorage.getItem("user"));
@@ -47,7 +46,6 @@ function App() {
   useEffect(() => {
     dispatch(getAllProducts());
     dispatch(getProductsPerPage(page));
-    
   }, [dispatch]);
   return (
     <>
@@ -62,13 +60,12 @@ function App() {
         <Route path="/account/login" element={<Auth />} />
         <Route path="/confirm" element={<ConfirmEmail />} />
         <Route path="/faqs" element={<Faq />} />
-        <Route path="/store/discount/show" element={<CardPagination />} />
         {/* */}
         <Route path="/confirm/:id" element={<ConfirmedEmail />} />
         {/* */}
+
         <Route path="/changePassword/:id" element={<ChangePassword_forgot />} />
         <Route path="/historia" element={<Historia />} />
-
         <Route
           path="/account/profile"
           element={
@@ -86,7 +83,6 @@ function App() {
           }
         />
         {/*autenticado */}
-
         <Route element={<ProtectedRoute isAllowed={user?.admin} />}>
           <Route path="/newproduct" element={<ProductForm />} />
           {/*autenticado y administrador*/}
@@ -94,7 +90,6 @@ function App() {
           {/*autenticado y administrador*/}
           <Route path="/categoryForm/:id" element={<CategoryForm />} />
           {/*autenticado y administrador*/}
-          <Route path="/adminDashboard" element={<Dashboard />} />
           {/*autenticado y administrador*/}
           <Route path="/adminDashboard/sidebar" element={<Sidebar />} />
           {/*autenticado y administrador*/}
@@ -111,7 +106,6 @@ function App() {
           <Route path="/admin/reviewslist" element={<ReviewsList />} />
           {/*autenticado y administrador*/}
         </Route>
-
         <Route path="/account/register" element={<Register />} />
         {/*sin logear*/}
       </Routes>
@@ -119,18 +113,4 @@ function App() {
     </>
   );
 }
-
 export default App;
-
-/* 
-    <Router>
-      <Routes>
-        <Route path='/:id' element={<Detail/>} />
-        <Route path='/' element={<Home/>} />
-      </Routes>
-    </Router>
-    
-    < Home />
-    
-    
-*/
